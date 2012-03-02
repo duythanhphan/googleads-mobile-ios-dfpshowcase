@@ -1,0 +1,21 @@
+===== iPhone DoubleClick for Publishers Showcase Application =====
+
+This is the DFP Showcase Application for iPhone.  It consists examples of
+various DFP banner and interstitial creative types.
+
+BannerViewController and InterstitialViewController classes are used to
+target and display ads using the Google AdMob Ads SDK. MasterViewController
+is used to display a table of ad formats.
+
+Requirements:
+- Google AdMob Ads SDK - iOS version 5.x
+- iOS SDK version 5.x
+- Xcode version 4.2 or higher
+
+Installation steps:
+1. Download the Google AdMob Ads SDK - iOS from
+   http://code.google.com/mobile/ads/download.html.
+2. Add the SDK library and header files to your project.
+3. Make sure to link the SDK library in your Build Phases.
+4. Run the application on an iPhone 5.x or higher device.
+

@@ -1,0 +1,15 @@
+iPhone DoubleClick for Publishers Showcase Change Log
+
+***********
+Version 1.0
+***********
+- Added Banner example.
+- Added Expandable example.
+- Added AdMob Backfill example.
+- Added Rich Media Interstitial example.
+- Added Image Animation example.
+- Added Video Interstitial example.
+- Added Click to Download example.
+- Added Click to Call example.
+- Added Click to Map example.
+
