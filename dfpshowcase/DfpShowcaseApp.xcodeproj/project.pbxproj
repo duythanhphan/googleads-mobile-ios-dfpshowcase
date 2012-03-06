@@ -29,10 +29,6 @@
 		84669D1B1469FF3000368660 /* AppDownload_34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 84669D141469FF3000368660 /* AppDownload_34x34.png */; };
 		84669D1C1469FF3000368660 /* Banner_34x34.png in Resources */ = {isa = PBXBuildFile; fileRef = 84669D151469FF3000368660 /* Banner_34x34.png */; };
 		846E9457149BF87300F7F36D /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 846E9456149BF87300F7F36D /* libGoogleAdMobAds.a */; };
-		846E9470149C0ACB00F7F36D /* DfpShowcaseApp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 846E946C149C0ACB00F7F36D /* DfpShowcaseApp.xcconfig */; };
-		846E9471149C0ACB00F7F36D /* Project-Debug-DfpShowcaseApp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 846E946D149C0ACB00F7F36D /* Project-Debug-DfpShowcaseApp.xcconfig */; };
-		846E9472149C0ACB00F7F36D /* Project-Release-DfpShowcaseApp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 846E946E149C0ACB00F7F36D /* Project-Release-DfpShowcaseApp.xcconfig */; };
-		846E9473149C0ACB00F7F36D /* Target-DfpShowcaseApp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 846E946F149C0ACB00F7F36D /* Target-DfpShowcaseApp.xcconfig */; };
 		846F1AB91474F8AC00DB2875 /* icon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 846F1AB71474F8AC00DB2875 /* icon_57x57.png */; };
 		846F1ABA1474F8AC00DB2875 /* icon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 846F1AB81474F8AC00DB2875 /* icon_114x114.png */; };
 		84D88F3E14860B0B00D88A18 /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D88F3D14860B0B00D88A18 /* BannerViewController.m */; };
@@ -84,10 +80,6 @@
 		846E9454149BF87300F7F36D /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
 		846E9455149BF87300F7F36D /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
 		846E9456149BF87300F7F36D /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		846E946C149C0ACB00F7F36D /* DfpShowcaseApp.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = DfpShowcaseApp.xcconfig; path = XcodeConfig/DfpShowcaseApp.xcconfig; sourceTree = "<group>"; };
-		846E946D149C0ACB00F7F36D /* Project-Debug-DfpShowcaseApp.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Debug-DfpShowcaseApp.xcconfig"; path = "XcodeConfig/Project-Debug-DfpShowcaseApp.xcconfig"; sourceTree = "<group>"; };
-		846E946E149C0ACB00F7F36D /* Project-Release-DfpShowcaseApp.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Project-Release-DfpShowcaseApp.xcconfig"; path = "XcodeConfig/Project-Release-DfpShowcaseApp.xcconfig"; sourceTree = "<group>"; };
-		846E946F149C0ACB00F7F36D /* Target-DfpShowcaseApp.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Target-DfpShowcaseApp.xcconfig"; path = "XcodeConfig/Target-DfpShowcaseApp.xcconfig"; sourceTree = "<group>"; };
 		846F1AB71474F8AC00DB2875 /* icon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_57x57.png; sourceTree = "<group>"; };
 		846F1AB81474F8AC00DB2875 /* icon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_114x114.png; sourceTree = "<group>"; };
 		84D88F3C14860B0B00D88A18 /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
@@ -149,7 +141,6 @@
 		844BD59F1457E23E00363031 = {
 			isa = PBXGroup;
 			children = (
-				846E945D149C000800F7F36D /* XcodeConfig */,
 				844A593D14613E560022263E /* Classes */,
 				848A6C89146123FF0022FEE6 /* Google */,
 				848A6C92146123FF0022FEE6 /* Resources */,
@@ -179,17 +170,6 @@
 				844BD5D21457E23E00363031 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		846E945D149C000800F7F36D /* XcodeConfig */ = {
-			isa = PBXGroup;
-			children = (
-				846E946C149C0ACB00F7F36D /* DfpShowcaseApp.xcconfig */,
-				846E946D149C0ACB00F7F36D /* Project-Debug-DfpShowcaseApp.xcconfig */,
-				846E946E149C0ACB00F7F36D /* Project-Release-DfpShowcaseApp.xcconfig */,
-				846E946F149C0ACB00F7F36D /* Target-DfpShowcaseApp.xcconfig */,
-			);
-			name = XcodeConfig;
 			sourceTree = "<group>";
 		};
 		848A6C89146123FF0022FEE6 /* Google */ = {
@@ -306,10 +286,6 @@
 				84669D1C1469FF3000368660 /* Banner_34x34.png in Resources */,
 				846F1AB91474F8AC00DB2875 /* icon_57x57.png in Resources */,
 				846F1ABA1474F8AC00DB2875 /* icon_114x114.png in Resources */,
-				846E9470149C0ACB00F7F36D /* DfpShowcaseApp.xcconfig in Resources */,
-				846E9471149C0ACB00F7F36D /* Project-Debug-DfpShowcaseApp.xcconfig in Resources */,
-				846E9472149C0ACB00F7F36D /* Project-Release-DfpShowcaseApp.xcconfig in Resources */,
-				846E9473149C0ACB00F7F36D /* Target-DfpShowcaseApp.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
