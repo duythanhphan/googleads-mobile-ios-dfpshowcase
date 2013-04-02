@@ -5,22 +5,25 @@
 // Copyright (c) 2011 Google Inc. All rights reserved.
 //
 
-// Banner ad unit for 320x50 and 320x415 ads.
-#define kBannerAdUnitID @"/6253334/demo_iphone_app/banner"
+// Ad units for Bundled examples.
+#define kImageAdUnitID @"/6253334/dfp_showcase/image"
+#define kAdMobAdUnitID @"/6253334/dfp_showcase/admob"
+#define kMediationAdUnitID @"/6253334/dfp_showcase/mediation"
+#define kTextImageAdUnitID @"/6253334/dfp_showcase/text_image"
+#define kDfaTagAdUnitID @"/6253334/dfp_showcase/dfa"
+#define kExpAdUnitID @"/6253334/dfp_showcase/mraid_expand"
+#define kIntAdUnitID @"/6253334/dfp_showcase/interstitial"
 
-// Interstitial ad unit for 320x480 ads.
-#define kInterstitialAdUnitID @"/6253334/demo_iphone_app/interstitial"
-
-// Constant for keyword key.
-#define kKey @"kw"
+// Ad units for Premium examples.
+#define kCarouselAdUnitID @"/6253334/dfp_showcase/carousel"
+#define kPlusAdUnitID @"/6253334/dfp_showcase/googleplus"
+#define kAutocloseAdUnitID @"/6253334/dfp_showcase/autoclose"
+#define kAnimationAdUnitID @"/6253334/dfp_showcase/image_animation"
+#define kVideoAdUnitID @"/6253334/dfp_showcase/video_interstitial"
+#define kDownloadAdUnitID @"/6253334/dfp_showcase/click2download"
+#define kCallAdUnitID @"/6253334/dfp_showcase/click2call"
+#define kMapAdUnitID @"/6253334/dfp_showcase/click2map"
 
 // Banner ad size constants.
 #define kBannerSizeString @"320x50"
-
-// Image animation ad size constants.
-#define kImageAnimationSize CGSizeMake(320,415)
-#define kImageAnimationSizeString @"320x415"
-
-// Interstitial ad size constants.
-#define kInterstitialSize CGSizeMake(320,480)
-#define kInterstitialSizeString @"320x480"
+#define kMediumRectangleSizeString @"300x250"

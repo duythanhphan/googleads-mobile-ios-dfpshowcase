@@ -9,96 +9,103 @@
 
 @implementation BannerViewController
 
-@synthesize adSize = adSize_;
 @synthesize bannerView = bannerView_;
-@synthesize keyValue = keyValue_;
-@synthesize rowImage = rowImage_;
 
-// Load background image since ad unit doesn't take up the full screen.
-// Fix starting position at (0,45) due to the height of the navigation bar.
-- (void)loadBackgroundImage {
-  UIImage *img = [UIImage imageNamed:@"background_320x365.jpg"];
-  UIImageView *bgImageView = [[UIImageView alloc] initWithImage:img];
-  bgImageView.frame = CGRectMake(0, 45, 320, 365);
-  [self.view addSubview:bgImageView];
++ (BannerViewController *)createWithAdSizeLabel:(NSString *)adSizeLabel
+                                          title:(NSString *)title
+                                       rowImage:(UIImage *)image {
+  // Retrieve main storyboard object.
+  UIStoryboard *storyboard =
+      [UIStoryboard storyboardWithName: @"MainStoryboard_iPhone" bundle:nil];
+  BannerViewController *bannerController = [storyboard
+      instantiateViewControllerWithIdentifier:@"BannerViewController"];
+  bannerController.adSizeLabel = adSizeLabel;
+  bannerController.title = title;
+  bannerController.rowImage = image;
+  return bannerController;
 }
 
-// Instantiate a new GADBannerView object, define ad frame dimensions and
+// Instantiate a new DFPBannerView object, define ad frame dimensions and
 // custom targeting, if any. Then, load ad request.
-- (void)loadBannerView:(NSInteger)adWidth height:(NSInteger)adHeight {
-  self.bannerView = [[GADBannerView alloc] initWithFrame:CGRectMake(
-      0.0,
-      self.view.frame.size.height - adHeight,
-      adWidth,
-      adHeight)];
+- (void)loadBannerView:(CGSize)bannerSize withAdUnit:adUnitID {
+  self.bannerView = [[DFPBannerView alloc] initWithFrame:CGRectMake(
+      (self.view.bounds.size.width - bannerSize.width) / 2,
+      self.view.bounds.size.height - bannerSize.height,
+      bannerSize.width,
+      bannerSize.height)];
 
   // Assign Banner ad unit id defined in AdConstants.h file.
-  self.bannerView.adUnitID = kBannerAdUnitID;
-
-  // Define root viewcontroller to return user to.
+  self.bannerView.adUnitID = adUnitID;
+  self.bannerView.delegate = self;
   self.bannerView.rootViewController = self;
   [self.view addSubview:self.bannerView];
 
-  // Retrieve GADRequest object and set custom targeting parameters.
-  GADRequest *adRequest = [GADRequest request];
-
-  // Set custom (keyword) targeting and load ad request.
-  if (self.keyValue) {
-    adRequest.additionalParameters =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-            self.keyValue, kKey,
-            nil];
-  }
-
-  // No need to clean up self.bannerView since we are using
-  // Automatic Reference Counting.
-  [self.bannerView loadRequest:adRequest];
+  // Load banner with an ad request. No need to clean up self.bannerView since
+  // we are using Automatic Reference Counting.
+  [self.bannerView loadRequest:[GADRequest request]];
 }
 
-- (void)viewDidLoad {
-  [super viewDidLoad];
+// Using viewWillLayoutSubviews instead of viewDidLoad, because at the time
+// this method is called, self.view.bounds has the correct reference point
+// when taking into consideration the navigation bar.
+- (void)viewWillLayoutSubviews {
+  [super viewWillLayoutSubviews];
 
-  // Check to see if the ad you are trying to load is an interstitial.
-  // If it is not, then load bannerView.
-  if ([self.keyValue rangeOfString:@"interstitial"].location == NSNotFound) {
-    // If ad type is image animation, don't load the background image.
-    if ([self.keyValue isEqualToString:@"imageanimation"]) {
-      [self loadBannerView:kImageAnimationSize.width
-                    height:kImageAnimationSize.height];
-    } else {
-      [self loadBackgroundImage];
-      [self loadBannerView:GAD_SIZE_320x50.width
-                    height:GAD_SIZE_320x50.height];
-    }
+  CGSize bannerSize = CGSizeZero;
+  NSString *adUnitID = @"";
+  // Load the appropriate bannerView.
+  if ([self.title isEqualToString:@"Image"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kImageAdUnitID;
+  } else if ([self.title isEqualToString:@"AdMob Backfill"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kAdMobAdUnitID;
+  } else if ([self.title isEqualToString:@"SDK Mediation"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kMediationAdUnitID;
+  } else if ([self.title isEqualToString:@"Text and Image"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kTextImageAdUnitID;
+  } else if ([self.title isEqualToString:@"DoubleClick Tag"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kDfaTagAdUnitID;
+  } else if ([self.title isEqualToString:@"MRAID Expandable"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kExpAdUnitID;
+  } else if ([self.title isEqualToString:@"Mobile Image Carousel"]) {
+    bannerSize = GAD_SIZE_300x250;
+    adUnitID = kCarouselAdUnitID;
+  } else if ([self.title isEqualToString:@"Mobile Image with Google +1"]) {
+    bannerSize = GAD_SIZE_300x250;
+    adUnitID = kPlusAdUnitID;
+  } else if ([self.title isEqualToString:@"Click to Download"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kDownloadAdUnitID;
+  } else if ([self.title isEqualToString:@"Click to Call"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kCallAdUnitID;
+  } else if ([self.title isEqualToString:@"Click to Map"]) {
+    bannerSize = GAD_SIZE_320x50;
+    adUnitID = kMapAdUnitID;
   }
+  [self loadBannerView:bannerSize withAdUnit:adUnitID];
 }
 
-// GADBannerView delegate method; called when a banner ad is received.
-- (void)adViewDidReceiveAd:(GADBannerView *)view {
+- (void)dealloc {
+  bannerView_.delegate = nil;
+}
+
+#pragma mark - GADBannerViewDelegate methods
+
+// Called when a banner ad is received.
+- (void)adViewDidReceiveAd:(DFPBannerView *)view {
   NSLog(@"Banner ad received");
 }
 
-// GADBannerView delegate method; called when there is no banner ad to show.
-- (void)adView:(GADBannerView *)view
+// Called when there is no banner ad to show.
+- (void)adView:(DFPBannerView *)view
     didFailToReceiveAdWithError:(GADRequestError *)error {
   NSLog(@"Error fetching Bannner ad: %@", [error localizedDescription]);
-}
-
-- (void)viewDidUnload {
-  self.bannerView = nil;
-  [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:
-    (UIInterfaceOrientation)interfaceOrientation {
-  // Return YES for supported orientations.
-  // This application only supports upright portrait orientation.
-  if ([[UIDevice currentDevice] userInterfaceIdiom] ==
-      UIUserInterfaceIdiomPhone) {
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-  } else {
-    return NO;
-  }
 }
 
 @end

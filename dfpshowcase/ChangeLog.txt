@@ -1,6 +1,18 @@
 iPhone DoubleClick for Publishers Showcase Change Log
 
 ***********
+Version 2.0
+***********
+- Added Tab Bar Controller to distinguish between bundled and premium features.
+- Added SDK Mediation example.
+- Added Text and Image example.
+- Added DFA Tag example.
+- Added MRAID Expandable example.
+- Added Mobile Image Carousel example.
+- Added Mobile Image with Google +1 example.
+- Added Mobile Interstitial w/ Autoclose example.
+
+***********
 Version 1.0
 ***********
 - Added Banner example.

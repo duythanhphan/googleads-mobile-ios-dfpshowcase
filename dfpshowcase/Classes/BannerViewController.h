@@ -7,16 +7,20 @@
 
 #import <UIKit/UIKit.h>
 #import "AdConstants.h"
-#import "GADBannerView.h"
+#import "AdViewController.h"
+#import "DFPBannerView.h"
 
-// Generic view controller for displaying an ad unit using Google AdMob Ads SDK.
-// Imports GADBannerView class used to display a banner ad.
-@interface BannerViewController : UIViewController <GADBannerViewDelegate>
+// View controller for displaying a banner using Google AdMob Ads SDK.
+@interface BannerViewController : AdViewController <GADBannerViewDelegate>
 
-@property (strong, nonatomic) GADBannerView *bannerView;
-@property (strong, nonatomic) UIImage *rowImage;
-@property (strong, nonatomic) NSString *keyValue;
-@property (strong, nonatomic) NSString *adSize;
+// Creates a BannerViewController with the specified ad size label,
+// title, and image to use in its TableViewCell.
++ (BannerViewController *)createWithAdSizeLabel:(NSString *)adSizeLabel
+                                          title:(NSString *)title
+                                       rowImage:(UIImage *)image;
+
+// The banner view to display.
+@property(strong, nonatomic) DFPBannerView *bannerView;
 
 @end
 
